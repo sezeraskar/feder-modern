@@ -6,6 +6,7 @@ import {
   Home, Newspaper, Info, Clock, Phone,
 } from 'lucide-react'
 import { useAdminAuth } from './store'
+import logo from '../assets/logo.png'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Members from './pages/Members'
@@ -116,15 +117,7 @@ function Sidebar({ open, isDesktop, onClose, logout }: {
         <div style={{ padding: '20px 16px 16px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 11, textDecoration: 'none' }}>
-              <div style={{
-                width: 38, height: 38, borderRadius: 10,
-                background: NAVY, border: `2px solid ${YELLOW}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                position: 'relative', overflow: 'hidden', flexShrink: 0,
-              }}>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%', backgroundColor: YELLOW }} />
-                <span style={{ color: 'white', fontWeight: 900, fontSize: 11, position: 'relative', zIndex: 1 }}>FB</span>
-              </div>
+              <img src={logo} alt="FeDeR Logo" style={{ width: 38, height: 38, objectFit: 'contain', flexShrink: 0 }} />
               <div>
                 <div style={{ color: 'white', fontWeight: 800, fontSize: 15 }}>
                   Fe<span style={{ color: YELLOW }}>De</span>R

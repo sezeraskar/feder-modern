@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data/content'
+import logo from '../assets/logo.png'
 
 const NAVY = '#003399'
 const YELLOW = '#FFCD00'
@@ -39,32 +40,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group" style={{ textDecoration: 'none' }}>
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: 12,
-                background: `linear-gradient(135deg, ${NAVY} 0%, #001F6B 100%)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 14px rgba(0,51,153,0.25)',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '45%',
-                  backgroundColor: YELLOW,
-                }}
-              />
-              <span style={{ color: 'white', fontWeight: 900, fontSize: 13, position: 'relative', zIndex: 1 }}>FB</span>
-            </div>
+            <img
+              src={logo}
+              alt="FeDeR Logo"
+              style={{ width: 44, height: 44, objectFit: 'contain' }}
+            />
             <div>
               <span style={{ color: NAVY, fontWeight: 800, fontSize: 20, letterSpacing: '-0.5px' }}>
                 Fe<span style={{ color: YELLOW }}>De</span>R

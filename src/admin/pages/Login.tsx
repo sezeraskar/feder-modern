@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import logo from '../../assets/logo.png'
 
 const NAVY = '#003399'
 const NAVY_DARK = '#0D1B52'
@@ -45,16 +46,7 @@ export default function Login({ onLogin }: LoginProps) {
       }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
-          <div style={{
-            width: 64, height: 64, borderRadius: 16,
-            background: `linear-gradient(135deg, ${NAVY_DARK}, ${NAVY})`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            margin: '0 auto 16px',
-            position: 'relative', overflow: 'hidden',
-          }}>
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%', backgroundColor: YELLOW }} />
-            <span style={{ color: 'white', fontWeight: 900, fontSize: 18, position: 'relative', zIndex: 1 }}>FB</span>
-          </div>
+          <img src={logo} alt="FeDeR Logo" style={{ width: 72, height: 72, objectFit: 'contain', margin: '0 auto 16px', display: 'block' }} />
           <h1 style={{ color: NAVY_DARK, fontSize: 22, fontWeight: 900, marginBottom: 4 }}>FeDeR Admin</h1>
           <p style={{ color: '#9AA5C0', fontSize: 14 }}>Yönetim Paneline Giriş</p>
         </div>

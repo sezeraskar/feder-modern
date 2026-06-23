@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import { MapPin, Phone } from 'lucide-react'
 import { navLinks, contact } from '../data/content'
 import { TwitterIcon, InstagramIcon, FacebookIcon, YoutubeIcon } from './SocialIcons'
+import logo from '../assets/logo.png'
 
-const NAVY = '#003399'
 const YELLOW = '#FFCD00'
 
 export default function Footer() {
@@ -14,23 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, textDecoration: 'none' }}>
-              <div
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 12,
-                  background: `linear-gradient(135deg, ${NAVY} 0%, #001F6B 100%)`,
-                  border: `2px solid ${YELLOW}`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '45%', backgroundColor: YELLOW }} />
-                <span style={{ color: 'white', fontWeight: 900, fontSize: 14, position: 'relative', zIndex: 1 }}>FB</span>
-              </div>
+              <img src={logo} alt="FeDeR Logo" style={{ width: 48, height: 48, objectFit: 'contain' }} />
               <div>
                 <span style={{ color: 'white', fontWeight: 800, fontSize: 22 }}>
                   Fe<span style={{ color: YELLOW }}>De</span>R
