@@ -21,31 +21,31 @@ export const news = [
     title: 'S. Sadettin Saran Yeni Başkan Seçildi',
     excerpt: '20-21 Eylül tarihlerinde gerçekleştirilen seçimlerde S. Sadettin Saran 12.325 oy alarak kulübün yeni başkanı oldu.',
     date: '22 Eylül 2023',
-    image: null,
+    image: 'https://picsum.photos/seed/feder1/800/400',
   },
   {
     id: 2,
     category: 'Spor Haberleri',
-    title: 'Fenerbahçe Beko Cumhurbaşkanlığı Kupası\'nda Şampiyon',
-    excerpt: 'Fenerbahçe Beko, Cumhurbaşkanlığı Kupası\'nda Beşiktaş\'ı geçerek şampiyonluğa ulaştı.',
+    title: "Fenerbahçe Beko Cumhurbaşkanlığı Kupası'nda Şampiyon",
+    excerpt: "Fenerbahçe Beko, Cumhurbaşkanlığı Kupası'nda Beşiktaş'ı geçerek şampiyonluğa ulaştı.",
     date: '15 Eylül 2023',
-    image: null,
+    image: 'https://picsum.photos/seed/feder2/800/400',
   },
   {
     id: 3,
     category: 'Voleybol',
-    title: 'Fenerbahçe Medicana VakıfBank\'a Karşı',
-    excerpt: 'Fenerbahçe Medicana, playoff\'ların üçüncü maçında VakıfBank\'ı ağırlıyor.',
+    title: "Fenerbahçe Medicana VakıfBank'a Karşı",
+    excerpt: "Fenerbahçe Medicana, playoff'ların üçüncü maçında VakıfBank'ı ağırlıyor.",
     date: '10 Eylül 2023',
-    image: null,
+    image: 'https://picsum.photos/seed/feder3/800/400',
   },
   {
     id: 4,
     category: 'FeDeR Akademi',
     title: 'Taraftar Kültürü ve Değerlerimiz',
-    excerpt: 'FeDeR Akademi\'nin bu haftaki köşe yazısında taraftar kültürü ve Fenerbahçe değerleri ele alınıyor.',
+    excerpt: "FeDeR Akademi'nin bu haftaki köşe yazısında taraftar kültürü ve Fenerbahçe değerleri ele alınıyor.",
     date: '5 Eylül 2023',
-    image: null,
+    image: 'https://picsum.photos/seed/feder4/800/400',
   },
   {
     id: 5,
@@ -53,15 +53,15 @@ export const news = [
     title: 'Yönetim Kurulu Atama Belgeleri Teslim Edildi',
     excerpt: 'Yeni seçilen yönetim kurulu üyelerine atama belgeleri törenle takdim edildi.',
     date: '25 Eylül 2023',
-    image: null,
+    image: 'https://picsum.photos/seed/feder5/800/400',
   },
   {
     id: 6,
     category: 'Dernek Haberleri',
     title: 'Sporda Şiddetin Önlenmesi Sempozyumu',
-    excerpt: 'FeDeR\'in organizasyonuyla düzenlenen sempozyumda sporda şiddetin önlenmesi ana gündem maddesi oldu.',
+    excerpt: "FeDeR'in organizasyonuyla düzenlenen sempozyumda sporda şiddetin önlenmesi ana gündem maddesi oldu.",
     date: '1 Eylül 2023',
-    image: null,
+    image: 'https://picsum.photos/seed/feder6/800/400',
   },
 ]
 
@@ -98,29 +98,71 @@ export const boardMembers = [
   { name: 'Alpaslan Anıl Ezergül', title: 'Üye', board: 2 },
 ]
 
+export const additionalCouncils = [
+  {
+    group: 'Denetim Kurulu',
+    boards: [
+      {
+        name: 'Denetim Kurulu 1',
+        members: ['Göktürk Düzgün', 'Barış Baysal', 'İrem Koç'],
+      },
+      {
+        name: 'Denetim Kurulu 2',
+        members: ['Nahide İpek Işım', 'Melih Yüksel Kaya', 'Fatih Coşkun'],
+      },
+    ],
+  },
+  {
+    group: 'Haysiyet Kurulu',
+    boards: [
+      {
+        name: 'Haysiyet Kurulu 1',
+        members: ['Serhat Peksöz', 'Turgut Saral', 'Osman Deniz'],
+      },
+      {
+        name: 'Haysiyet Kurulu 2',
+        members: ['Bülent Batur', 'Özlem Özgül', 'Tekin Aray'],
+      },
+    ],
+  },
+  {
+    group: 'Sicil Kurulu',
+    boards: [
+      {
+        name: 'Sicil Kurulu 1',
+        members: ['Özlem İlk', 'İsmail Çapa', 'Ozan Ketenci'],
+      },
+      {
+        name: 'Sicil Kurulu 2',
+        members: ['Okan Ak', 'Kübra Karaçor', 'Ali Bağcı'],
+      },
+    ],
+  },
+]
+
 export const historyTimeline = [
   {
     year: '1986',
     title: 'Kuruluş',
-    description: 'FeDeR, Türkiye\'nin ilk taraftar derneği olarak İstanbul\'da kuruldu. Bilinçli ve eğitimli Fenerbahçe taraftarı yetiştirme amacıyla faaliyetlerine başladı.',
+    description: "FeDeR, Türkiye'nin ilk taraftar derneği olarak İstanbul'da kuruldu. Bilinçli ve eğitimli Fenerbahçe taraftarı yetiştirme amacıyla faaliyetlerine başladı.",
   },
   {
-    year: '1990\'lar',
+    year: "1990'lar",
     title: 'Büyüme Dönemi',
     description: 'Dernek üye sayısını hızla artırarak Fenerbahçe taraftar kültürünün gelişmesinde önemli rol oynadı. Sporda şiddetin önlenmesi alanında öncü çalışmalar yürütüldü.',
   },
   {
-    year: '2000\'ler',
+    year: "2000'ler",
     title: 'Uluslararası Tanınırlık',
-    description: 'Avrupa Futbol Taraftarları (FSE) kurucu üyesi olarak Türkiye\'yi uluslararası platformda temsil etmeye başladı.',
+    description: "Avrupa Futbol Taraftarları (FSE) kurucu üyesi olarak Türkiye'yi uluslararası platformda temsil etmeye başladı.",
   },
   {
-    year: '2010\'lar',
+    year: "2010'lar",
     title: 'Sosyal Sorumluluk',
     description: 'Sosyal ve kültürel etkinliklerin düzenlenmesi, taraftar haklarının savunuculuğu ve spor etiği alanında kapsamlı projeler hayata geçirildi.',
   },
   {
-    year: '2020\'ler',
+    year: "2020'ler",
     title: 'Dijital Dönüşüm',
     description: 'Dijital platformlar aracılığıyla üyelere daha iyi hizmet sunulmaya başlandı. Yeni nesil taraftar kültürünün oluşturulmasına katkı sağlandı.',
   },

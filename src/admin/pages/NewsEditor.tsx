@@ -136,6 +136,11 @@ export default function NewsEditor() {
                       <label style={{ display: 'block', color: '#5A6A9A', fontSize: 12, fontWeight: 600, marginBottom: 6 }}>Başlık</label>
                       <input value={item.title} onChange={e => update(item.id, 'title', e.target.value)} style={F} />
                     </div>
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <label style={{ display: 'block', color: '#5A6A9A', fontSize: 12, fontWeight: 600, marginBottom: 6 }}>Görsel URL</label>
+                      <input value={item.image ?? ''} onChange={e => update(item.id, 'image' as keyof NewsItem, e.target.value)} style={F} placeholder="https://..." />
+                      {item.image && <img src={item.image} alt="" style={{ marginTop: 8, width: '100%', height: 120, objectFit: 'cover', borderRadius: 8 }} />}
+                    </div>
                     <div>
                       <label style={{ display: 'block', color: '#5A6A9A', fontSize: 12, fontWeight: 600, marginBottom: 6 }}>Kategori</label>
                       <select value={item.category} onChange={e => update(item.id, 'category', e.target.value)} style={F}>

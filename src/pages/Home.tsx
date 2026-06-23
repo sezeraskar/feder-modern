@@ -176,7 +176,7 @@ export default function Home() {
             <div style={{ position: 'relative' }}>
               <h2 style={{ fontSize: 'clamp(28px,4vw,40px)', fontWeight: 900, color: NAVY_DARK, marginBottom: 12 }}>{c.homeCtaTitle}</h2>
               <p style={{ color: 'rgba(0,31,107,0.65)', fontSize: 17, marginBottom: 32 }}>{c.homeCtaSub}</p>
-              <Link to="/iletisim" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 36px', background: NAVY_DARK, color: 'white', fontWeight: 800, fontSize: 15, borderRadius: 14, textDecoration: 'none', boxShadow: '0 8px 24px rgba(0,31,107,0.3)' }}>
+              <Link to="/uye-ol" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 36px', background: NAVY_DARK, color: 'white', fontWeight: 800, fontSize: 15, borderRadius: 14, textDecoration: 'none', boxShadow: '0 8px 24px rgba(0,31,107,0.3)' }}>
                 Üye Ol <ArrowRight size={18} />
               </Link>
             </div>

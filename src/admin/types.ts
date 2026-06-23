@@ -13,6 +13,7 @@ export interface Member {
   boardTitle?: string
   notes: string
   createdAt: string
+  password?: string
 }
 
 export interface Due {
@@ -31,6 +32,7 @@ export interface NewsItem {
   title: string
   excerpt: string
   date: string
+  image?: string | null
 }
 
 export interface AboutValue {
