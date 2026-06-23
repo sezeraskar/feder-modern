@@ -3,23 +3,13 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Shield, Users, Award, Heart, ChevronDown } from 'lucide-react'
 import NewsCard from '../components/NewsCard'
 import SectionHeader from '../components/SectionHeader'
+import HeroParticles from '../components/HeroParticles'
 import { useContent } from '../hooks/useContent'
 
 const NAVY = '#003399'
 const NAVY_DARK = '#001F6B'
 const YELLOW = '#FFCD00'
 
-// Deterministic particle data (no Math.random in render)
-const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
-  id: i,
-  x: (i * 43 + 11) % 100,
-  y: (i * 67 + 23) % 100,
-  size: (i % 3) + 2,
-  yellow: i % 5 === 0 || i % 7 === 0,
-  anim: i % 3,
-  duration: 4 + (i % 4),
-  delay: (i * 0.35) % 3.5,
-}))
 
 export default function Home() {
   const c = useContent()
@@ -36,74 +26,77 @@ export default function Home() {
         {/* ── Animated background ── */}
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
 
-          {/* Floating blobs */}
+          {/* Bold floating blobs */}
           <div className="hero-blob-1" style={{
-            position: 'absolute', top: '-15%', right: '-10%',
-            width: 700, height: 700, borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,205,0,0.13) 0%, transparent 65%)',
-            filter: 'blur(40px)',
+            position: 'absolute', top: '-20%', right: '-15%',
+            width: 800, height: 800, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,205,0,0.22) 0%, transparent 60%)',
+            filter: 'blur(25px)',
           }} />
           <div className="hero-blob-2" style={{
-            position: 'absolute', bottom: '-20%', left: '-12%',
-            width: 650, height: 650, borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0,68,204,0.35) 0%, transparent 65%)',
-            filter: 'blur(50px)',
+            position: 'absolute', bottom: '-25%', left: '-15%',
+            width: 750, height: 750, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0,100,255,0.45) 0%, transparent 60%)',
+            filter: 'blur(30px)',
           }} />
           <div className="hero-blob-3" style={{
-            position: 'absolute', top: '30%', left: '35%',
-            width: 400, height: 400, borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,205,0,0.07) 0%, transparent 65%)',
-            filter: 'blur(60px)',
+            position: 'absolute', top: '20%', left: '30%',
+            width: 500, height: 500, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,205,0,0.14) 0%, transparent 60%)',
+            filter: 'blur(35px)',
+          }} />
+          <div className="hero-blob-2" style={{
+            position: 'absolute', top: '-5%', left: '-8%',
+            width: 450, height: 450, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0,140,255,0.3) 0%, transparent 60%)',
+            filter: 'blur(25px)',
+            animationDelay: '-5s',
           }} />
           <div className="hero-blob-1" style={{
-            position: 'absolute', top: '10%', left: '-5%',
-            width: 350, height: 350, borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0,100,255,0.2) 0%, transparent 65%)',
-            filter: 'blur(45px)',
-            animationDelay: '-4s',
+            position: 'absolute', bottom: '10%', right: '5%',
+            width: 380, height: 380, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,205,0,0.18) 0%, transparent 60%)',
+            filter: 'blur(20px)',
+            animationDelay: '-3s',
+          }} />
+
+          {/* Rotating ring */}
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%',
+            width: 700, height: 700, borderRadius: '50%',
+            border: '1px solid rgba(255,205,0,0.08)',
+            transform: 'translate(-50%, -50%)',
+            animation: 'blob3 25s linear infinite',
+          }} />
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%',
+            width: 1000, height: 1000, borderRadius: '50%',
+            border: '1px solid rgba(255,255,255,0.04)',
+            transform: 'translate(-50%, -50%)',
+            animation: 'blob1 35s linear infinite reverse',
           }} />
 
           {/* Pulsing grid */}
           <div className="hero-grid" style={{
             position: 'absolute', inset: 0,
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
             backgroundSize: '60px 60px',
           }} />
 
-          {/* Floating particles */}
-          {PARTICLES.map(p => (
-            <div key={p.id} style={{
-              position: 'absolute',
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
-              borderRadius: '50%',
-              background: p.yellow ? `rgba(255,205,0,0.75)` : 'rgba(255,255,255,0.45)',
-              boxShadow: p.yellow ? '0 0 6px rgba(255,205,0,0.5)' : 'none',
-              animation: `particleDrift${p.anim} ${p.duration}s ease-in-out infinite`,
-              animationDelay: `${p.delay}s`,
-            }} />
-          ))}
+          {/* Canvas particle network */}
+          <HeroParticles count={75} />
 
-          {/* Scrolling wave at bottom */}
-          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, overflow: 'hidden' }}>
-            <svg
-              className="hero-wave"
-              style={{ position: 'absolute', bottom: 0, width: '200%', height: '100%' }}
-              viewBox="0 0 2880 80"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0,40 C360,80 720,0 1080,40 C1440,80 1800,0 2160,40 C2520,80 2880,0 2880,40 L2880,80 L0,80 Z"
-                fill="rgba(255,255,255,0.04)"
-              />
+          {/* Scrolling wave */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 90, overflow: 'hidden' }}>
+            <svg className="hero-wave" style={{ position: 'absolute', bottom: 0, width: '200%', height: '100%' }}
+              viewBox="0 0 2880 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0,45 C360,90 720,0 1080,45 C1440,90 1800,0 2160,45 C2520,90 2880,0 2880,45 L2880,90 L0,90 Z"
+                fill="rgba(255,255,255,0.05)" />
             </svg>
           </div>
 
-          {/* Yellow accent stripe */}
+          {/* Yellow stripe */}
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 5, background: YELLOW }} />
         </div>
 
