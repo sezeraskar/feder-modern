@@ -9,6 +9,18 @@ const NAVY = '#003399'
 const NAVY_DARK = '#001F6B'
 const YELLOW = '#FFCD00'
 
+// Deterministic particle data (no Math.random in render)
+const PARTICLES = Array.from({ length: 22 }, (_, i) => ({
+  id: i,
+  x: (i * 43 + 11) % 100,
+  y: (i * 67 + 23) % 100,
+  size: (i % 3) + 2,
+  yellow: i % 5 === 0 || i % 7 === 0,
+  anim: i % 3,
+  duration: 4 + (i % 4),
+  delay: (i * 0.35) % 3.5,
+}))
+
 export default function Home() {
   const c = useContent()
   const news = useMemo(() => c.news.slice(0, 6), [c.news])
@@ -21,10 +33,77 @@ export default function Home() {
         position: 'relative', overflow: 'hidden',
         background: `linear-gradient(145deg, #001F6B 0%, #003399 45%, #0044CC 100%)`,
       }}>
+        {/* ── Animated background ── */}
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-          <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: 600, height: 600, borderRadius: '50%', background: 'rgba(255,205,0,0.06)', filter: 'blur(60px)' }} />
-          <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: 500, height: 500, borderRadius: '50%', background: 'rgba(255,255,255,0.04)', filter: 'blur(80px)' }} />
-          <div style={{ position: 'absolute', inset: 0, opacity: 0.04, backgroundImage: `linear-gradient(rgba(255,255,255,0.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.6) 1px,transparent 1px)`, backgroundSize: '60px 60px' }} />
+
+          {/* Floating blobs */}
+          <div className="hero-blob-1" style={{
+            position: 'absolute', top: '-15%', right: '-10%',
+            width: 700, height: 700, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,205,0,0.13) 0%, transparent 65%)',
+            filter: 'blur(40px)',
+          }} />
+          <div className="hero-blob-2" style={{
+            position: 'absolute', bottom: '-20%', left: '-12%',
+            width: 650, height: 650, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0,68,204,0.35) 0%, transparent 65%)',
+            filter: 'blur(50px)',
+          }} />
+          <div className="hero-blob-3" style={{
+            position: 'absolute', top: '30%', left: '35%',
+            width: 400, height: 400, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,205,0,0.07) 0%, transparent 65%)',
+            filter: 'blur(60px)',
+          }} />
+          <div className="hero-blob-1" style={{
+            position: 'absolute', top: '10%', left: '-5%',
+            width: 350, height: 350, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0,100,255,0.2) 0%, transparent 65%)',
+            filter: 'blur(45px)',
+            animationDelay: '-4s',
+          }} />
+
+          {/* Pulsing grid */}
+          <div className="hero-grid" style={{
+            position: 'absolute', inset: 0,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+          }} />
+
+          {/* Floating particles */}
+          {PARTICLES.map(p => (
+            <div key={p.id} style={{
+              position: 'absolute',
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: p.size,
+              height: p.size,
+              borderRadius: '50%',
+              background: p.yellow ? `rgba(255,205,0,0.75)` : 'rgba(255,255,255,0.45)',
+              boxShadow: p.yellow ? '0 0 6px rgba(255,205,0,0.5)' : 'none',
+              animation: `particleDrift${p.anim} ${p.duration}s ease-in-out infinite`,
+              animationDelay: `${p.delay}s`,
+            }} />
+          ))}
+
+          {/* Scrolling wave at bottom */}
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, overflow: 'hidden' }}>
+            <svg
+              className="hero-wave"
+              style={{ position: 'absolute', bottom: 0, width: '200%', height: '100%' }}
+              viewBox="0 0 2880 80"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0,40 C360,80 720,0 1080,40 C1440,80 1800,0 2160,40 C2520,80 2880,0 2880,40 L2880,80 L0,80 Z"
+                fill="rgba(255,255,255,0.04)"
+              />
+            </svg>
+          </div>
+
+          {/* Yellow accent stripe */}
           <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 5, background: YELLOW }} />
         </div>
 
